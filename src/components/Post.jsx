@@ -48,7 +48,7 @@ const Post = () => {
                       {post.title}
                     </h3>
                     <p className="mt-2 text-gray-500">
-                      Click to read more about this amazing post.
+                      閱讀更多
                     </p>
                   </div>
                 </div>
