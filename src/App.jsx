@@ -32,14 +32,12 @@ function App() {
         <Route path="/about"
               element={
         <About
-        firstContent={
+        firstContent=
+        {
           <img
             src="https://res.cloudinary.com/dtbj43yha/image/upload/v1738381859/cat_aojuu7.jpg"
-            alt="可愛的貓咪"
-           
-            
-          />
-        }
+            alt="可愛的貓咪"/>
+          }
         secondContent={
           <div
             style={{
@@ -48,19 +46,15 @@ function App() {
               display: "grid",
               placeItems: "center",
               backgroundColor: "#111"
-            }}
-          >
+            }}>
             <p style={{ fontWeight: 900, fontSize: "3rem", color: "#ffffff" }}>喵!</p>
           </div>
         }
         gridSize={12}
         pixelColor='#ffffff'
         animationStepDuration={0.4}
-        className="custom-pixel-card"
-    />
-  }
-/>
-    
+        className="custom-pixel-card"/>
+  }/>
       </Routes>
     </BrowserRouter>
   );

@@ -19,7 +19,7 @@ const Home = () => {
      <div className="relative flex flex-col items-center justify-center bg-emerald-950 px-4 py-24 text-yellow-50">
      <h1 className="max-w-2xl text-center text-3xl sm:text-4xl md:text-5xl leading-snug">
         <span className="relative">
-          嗨~我是Jack歡迎
+          嗨~我是Jack歡迎來到我網站
           <svg
             viewBox="0 0 286 73"
             fill="none"
