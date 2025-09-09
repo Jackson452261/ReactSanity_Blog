@@ -1,8 +1,27 @@
-import { useParams } from "react-router-dom"
-import sanityClient from '../../src/client'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url"
 import BlockContent from  "@sanity/block-content-to-react"
+
+// Function to get default descriptions based on post title
+const getDefaultDescription = (title) => {
+  const descriptions = {
+    "合歡山": "南投埔里",
+    "武陵": "南投埔里",
+    "MotoGP馬來西亞雪邦站": "馬來西亞",
+    "本田Honda博物館": "茂木町 日本栃木縣", 
+    "default": "探索亞洲豐富多元的飲食文化，從街頭小吃到精緻料理，每一道菜都有其獨特的故事。"
+  };
+  
+  // Check if title contains specific keywords
+  if (title && title.includes("合歡山")) return descriptions["合歡山"];
+  if (title && title.includes("武陵")) return descriptions["武陵"];
+  if (title && title.includes("MotoGP馬來西亞雪邦站")) return descriptions["MotoGP馬來西亞雪邦站"];
+  if (title && title.includes("本田Honda博物館")) return descriptions["本田Honda博物館"];
+  
+  return descriptions["default"];
+};
 
 const SinglePost = () => {
 
@@ -63,7 +82,7 @@ const SinglePost = () => {
     </div>
 
   return (
-   <main className='bg-gray-50 min-h-screen'>
+   <main className='bg-gray-50 min-h-screen' onContextMenu={(e) => e.preventDefault()}>
      {/* Hero Section with Background Image */}
      <section className='relative h-96 overflow-hidden'>
        <div className='absolute inset-0'>
@@ -71,6 +90,9 @@ const SinglePost = () => {
            src={SinglePost.mainImage.asset.url}
            alt={SinglePost.title}
            className="w-full h-full object-cover"
+           onContextMenu={(e) => e.preventDefault()}
+           onDragStart={(e) => e.preventDefault()}
+           style={{ userSelect: 'none', pointerEvents: 'auto' }}
          />
          <div className='absolute inset-0 bg-black bg-opacity-50'></div>
        </div>
@@ -81,7 +103,7 @@ const SinglePost = () => {
            </div>
            <h1 className='text-3xl md:text-5xl font-bold mb-4'>{SinglePost.title}</h1>
            <p className='text-lg md:text-xl mb-6 text-gray-200'>
-             {SinglePost.description || "探索亞洲豐富多元的飲食文化，從街頭小吃到精緻料理，每一道菜都有其獨特的故事"}
+             {SinglePost.description || getDefaultDescription(SinglePost.title)}
            </p>
            <div className='flex items-center justify-center space-x-6 text-sm'>
              <div className='flex items-center space-x-2'>
@@ -121,6 +143,9 @@ const SinglePost = () => {
                    src={urlFor(SinglePost.authorImage).width(64).height(64).url()}
                    alt={SinglePost.name}
                    className="w-16 h-16 rounded-full object-cover"
+                   onContextMenu={(e) => e.preventDefault()}
+                   onDragStart={(e) => e.preventDefault()}
+                   style={{ userSelect: 'none', pointerEvents: 'auto' }}
                  />
                ) : (
                  <svg className="w-8 h-8 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
@@ -136,8 +161,42 @@ const SinglePost = () => {
            </div>
 
            {/* Article Content */}
-           <article className='bg-white rounded-lg shadow-sm p-8 prose prose-lg max-w-none'>
-             <BlockContent blocks={SinglePost.body} projectId="ctcz4jd3" dataset="production"/>
+           <article 
+             className='prose prose-lg max-w-none bg-white rounded-lg shadow-sm p-8'
+             onContextMenu={(e) => e.preventDefault()}
+             onDragStart={(e) => e.preventDefault()}
+             style={{ userSelect: 'text' }}
+           >
+             <div 
+               onContextMenu={(e) => e.preventDefault()}
+               style={{ 
+                 userSelect: 'text',
+               }}
+             >
+               <BlockContent 
+                 blocks={SinglePost.body} 
+                 projectId="tp2f1obx" 
+                 dataset="production"
+                 serializers={{
+                   types: {
+                     image: (props) => (
+                       <img
+                         src={urlFor(props.node.asset).url()}
+                         alt={props.node.alt || ''}
+                         onContextMenu={(e) => e.preventDefault()}
+                         onDragStart={(e) => e.preventDefault()}
+                         style={{ 
+                           userSelect: 'none', 
+                           pointerEvents: 'auto',
+                           maxWidth: '100%',
+                           height: 'auto'
+                         }}
+                       />
+                     )
+                   }
+                 }}
+               />
+             </div>
            </article>
          </div>
 
@@ -172,6 +231,9 @@ const SinglePost = () => {
                      src={post.mainImage.asset.url}
                      alt={post.title}
                      className="w-16 h-16 object-cover rounded-lg"
+                     onContextMenu={(e) => e.preventDefault()}
+                     onDragStart={(e) => e.preventDefault()}
+                     style={{ userSelect: 'none', pointerEvents: 'auto' }}
                    />
                    <div className='flex-1'>
                      <h4 className='text-sm font-medium text-gray-900 line-clamp-2 mb-1'>

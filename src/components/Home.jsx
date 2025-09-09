@@ -1,5 +1,5 @@
  
-import FooterLogo from "./FooterLogo";
+import Footer from "./Footer";
 import Cards from "./HoverDev/Cards";
 import { Carousel } from "./HoverDev/Carousel";
  
@@ -44,7 +44,7 @@ const Home = () => {
  
      <Carousel />
      <Cards /> 
-     <FooterLogo />
+    
     </div>
   );
 };

@@ -1,6 +1,26 @@
 import { useState, useEffect } from "react";
-import sanityClient from "../../src/client";
 import { Link } from "react-router-dom";
+import sanityClient from "../client.js";
+
+// Function to get default descriptions based on post title
+const getDefaultDescription = (title) => {
+  const descriptions = {
+    "合歡山": "南投埔里",
+    "武陵": "南投埔里", 
+    "MotoGP馬來西亞雪邦站": "馬來西亞",
+    "本田Honda博物館": "茂木町 日本栃木縣",
+    
+    "default": "探索亞洲豐富多元的飲食文化，從街頭小吃到精緻料理，每一道菜都有其獨特的故事。"
+  };
+  
+  // Check if title contains specific keywords
+  if (title && title.includes("合歡山")) return descriptions["合歡山"];
+  if (title && title.includes("武陵")) return descriptions["武陵"];
+  if (title && title.includes("MotoGP馬來西亞雪邦站")) return descriptions["MotoGP馬來西亞雪邦站"];
+  if (title && title.includes("本田Honda博物館")) return descriptions["本田Honda博物館"];
+  
+  return descriptions["default"];
+};
 
 const Post = () => {
   const [postData, setPost] = useState(null);
@@ -50,6 +70,8 @@ const Post = () => {
                       src={post.mainImage.asset.url}
                       alt={post.mainImage.alt}
                       onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
+                      style={{ userSelect: 'none', pointerEvents: 'auto' }}
                     />
                     <div className="absolute top-3 right-3 bg-white rounded-full px-3 py-1 shadow-md">
                       <div className="flex items-center space-x-1">
@@ -65,7 +87,7 @@ const Post = () => {
                       {post.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                      {post.description || "探索亞洲豐富多元的飲食文化，從街頭小吃到精緻料理，每一道菜都有其獨特的故事。"}
+                      {post.description || getDefaultDescription(post.title)}
                     </p>
                     <div className="flex items-center justify-between text-sm text-gray-500">
                       <div className="flex items-center space-x-4">

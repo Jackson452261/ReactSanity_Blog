@@ -5,6 +5,7 @@ import SinglePost from "./components/SinglePost";
 import Post from "./components/Post";
 //import Project from "./components/Project";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 const images = [
   "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=500&auto=format",
   "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=500&auto=format",
@@ -56,6 +57,7 @@ function App() {
         className="custom-pixel-card"/>
   }/>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

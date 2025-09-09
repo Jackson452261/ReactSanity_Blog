@@ -8,7 +8,7 @@
     position: relative;
     left: 50%; /* 修改为 50% */
     
-    transform: translate(-50%, 50%); /* 添加此行 */
+    transform: translate(-50%, 1px); /* 向上移动50px */
     overflow: hidden;
   }
   
