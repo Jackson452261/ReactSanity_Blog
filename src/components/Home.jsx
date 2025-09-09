@@ -1,19 +1,34 @@
- 
+ import { useEffect } from "react";
 import Footer from "./Footer";
 import Cards from "./HoverDev/Cards";
 import { Carousel } from "./HoverDev/Carousel";
- 
 import { motion } from "framer-motion";
- 
-
+import { updateDocumentMeta, addStructuredData, seoConfigs, generateWebsiteStructuredData } from "../utils/seo";
 
 const Home = () => {
+  useEffect(() => {
+    // Update SEO meta tags for home page
+    const baseUrl = window.location.origin;
+    const homeSEO = {
+      ...seoConfigs.home,
+      canonical: baseUrl,
+      ogUrl: baseUrl,
+      ogImage: `${baseUrl}/assets/Logo.png`,
+      twitterImage: `${baseUrl}/assets/Logo.png`
+    };
+    
+    updateDocumentMeta(homeSEO);
+    
+    // Add structured data for website
+    addStructuredData(generateWebsiteStructuredData());
+  }, []);
+
   return (
     <div className="relative overflow-hidden">
       {/* 背景圖片 */}
       <img
         src=""
-        alt="travel"
+        alt="Jack網站旅遊部落格背景"
         className="absolute object-cover w-full h-full top-0 left-0 "
       />
      <div className="relative flex flex-col items-center justify-center bg-emerald-950 px-4 py-24 text-yellow-50">
@@ -23,7 +38,8 @@ const Home = () => {
           <svg
             viewBox="0 0 286 73"
             fill="none"
-            className="absolute -left-2 -right-20 -top-10 bottom-0 translate-y-1">
+            className="absolute -left-2 -right-20 -top-10 bottom-0 translate-y-1"
+            aria-hidden="true">
             <motion.path
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
@@ -36,15 +52,18 @@ const Home = () => {
               strokeWidth="3"
             />
           </svg>
-        </span>{" "}
-        
+        </span>
       </h1>
     </div>
       {/* 內容區域 */}
- 
-     <Carousel />
-     <Cards /> 
-    
+      <main>
+        <section aria-label="精選旅遊內容">
+          <Carousel />
+        </section>
+        <section aria-label="最新文章">
+          <Cards />
+        </section>
+      </main>
     </div>
   );
 };

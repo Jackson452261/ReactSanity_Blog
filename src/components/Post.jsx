@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import sanityClient from "../client.js";
+import { updateDocumentMeta, addStructuredData, seoConfigs, generateWebsiteStructuredData } from "../utils/seo";
 
 // Function to get default descriptions based on post title
 const getDefaultDescription = (title) => {
@@ -26,6 +27,40 @@ const Post = () => {
   const [postData, setPost] = useState(null);
 
   useEffect(() => {
+    // Update SEO meta tags for blog listing page
+    const baseUrl = window.location.origin;
+    const blogSEO = {
+      ...seoConfigs.blog,
+      canonical: `${baseUrl}/post`,
+      ogUrl: `${baseUrl}/post`,
+      ogImage: `${baseUrl}/assets/Logo.png`,
+      twitterImage: `${baseUrl}/assets/Logo.png`
+    };
+    
+    updateDocumentMeta(blogSEO);
+    
+    // Add structured data for blog
+    const blogStructuredData = {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Jack網站 - 旅遊部落格",
+      "description": "分享台灣與亞洲旅遊體驗的部落格",
+      "url": `${baseUrl}/post`,
+      "author": {
+        "@type": "Person",
+        "name": "Jack Chen"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Jack網站",
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${baseUrl}/assets/Logo.png`
+        }
+      }
+    };
+    addStructuredData(blogStructuredData);
+
     sanityClient
       .fetch(
         `*[_type == "post"]{
@@ -56,7 +91,7 @@ const Post = () => {
   };
 
   return (
-    <section className="bg-gray-50 py-16 px-4">
+    <main className="bg-gray-50 py-16 px-4">
       <div className="container mx-auto">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-12">最新文章</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -120,7 +155,7 @@ const Post = () => {
             ))}
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

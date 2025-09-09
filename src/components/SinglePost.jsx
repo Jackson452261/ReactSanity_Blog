@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url"
 import BlockContent from  "@sanity/block-content-to-react"
+import { updateDocumentMeta, addStructuredData, generatePostSEO, generatePostStructuredData } from "../utils/seo";
 
 // Function to get default descriptions based on post title
 const getDefaultDescription = (title) => {
@@ -49,7 +50,20 @@ const SinglePost = () => {
         body,
         "name": author->name,
         "authorImage": author->image,
-    }`).then((data) => setSinglePost(data[0]))
+    }`).then((data) => {
+      const post = data[0];
+      setSinglePost(post);
+      
+      // Update SEO for this specific post
+      if (post) {
+        const postSEO = generatePostSEO(post);
+        updateDocumentMeta(postSEO);
+        
+        // Add structured data for the post
+        const postStructuredData = generatePostStructuredData(post);
+        addStructuredData(postStructuredData);
+      }
+    })
     .catch(console.error)
 
     // Fetch related posts
@@ -101,7 +115,7 @@ const SinglePost = () => {
            <div className='inline-block bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium mb-4'>
              BLOG
            </div>
-           <h1 className='text-3xl md:text-5xl font-bold mb-4'>{SinglePost.title}</h1>
+           <h1 className='text-3xl md:text-5xl font-bold mb-4'>{SinglePost.title} | Jack網站旅遊分享</h1>
            <p className='text-lg md:text-xl mb-6 text-gray-200'>
              {SinglePost.description || getDefaultDescription(SinglePost.title)}
            </p>
