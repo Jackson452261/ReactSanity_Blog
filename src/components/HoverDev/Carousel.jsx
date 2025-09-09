@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 const imgs = [
-    "https://images.unsplash.com/photo-1732647169576-49abfdef3348?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8",
-    "https://plus.unsplash.com/premium_photo-1670793631007-e86c6ddfd812?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D",
-    "https://plus.unsplash.com/premium_photo-1734389995951-1a6832fe8eed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D",
-    "https://plus.unsplash.com/premium_photo-1734498806724-a5e9431ff4f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxOXx8fGVufDB8fHx8fA%3D%3D"
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756212844/IMG_1998_ew87eo.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756212384/IMG_1968_i6a4ey.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756212130/IMG_1599_yyivgm.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756211788/20241006_110101_uc5yu7.jpg"
    ]
 
 
@@ -90,12 +90,18 @@ const Images = ({ imgIndex }) => {
               backgroundImage: `url(${imgSrc})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              width: '100vw',
+              height: '80vh',
+              userSelect: 'none',
+              pointerEvents: 'auto'
             }}
             animate={{
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className="aspect-video w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
+            className="aspect-video shrink-0 rounded-xl bg-neutral-800 object-cover"
+            onContextMenu={(e) => e.preventDefault()}
+            onDragStart={(e) => e.preventDefault()}
           />
         );
       })}
