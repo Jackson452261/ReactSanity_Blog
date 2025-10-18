@@ -124,7 +124,7 @@ const SinglePost = () => {
                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                </svg>
-               <span>{SinglePost.publishedAt ? formatDate(SinglePost.publishedAt) : '2024年12月15日'}</span>
+               <span>{SinglePost.publishedAt ? formatDate(SinglePost.publishedAt) : '2024年10月6日'}</span>
              </div>
              <div className='flex items-center space-x-2'>
                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ const SinglePost = () => {
              <div>
                <h3 className='font-semibold text-gray-900'>{SinglePost.name || 'Kevin Chen'}</h3>
                <p className='text-gray-600 text-sm'>Travel Writer & Photographer</p>
-               <p className='text-gray-500 text-xs'>Published on {SinglePost.publishedAt ? formatDate(SinglePost.publishedAt) : '2024年12月15日'}</p>
+               <p className='text-gray-500 text-xs'>Published on {SinglePost.publishedAt ? formatDate(SinglePost.publishedAt) : '2024年10月6日'}</p>
              </div>
            </div>
 
@@ -254,7 +254,7 @@ const SinglePost = () => {
                        {post.title}
                      </h4>
                      <p className='text-xs text-gray-500'>
-                       {post.publishedAt ? formatDate(post.publishedAt) : '2024年11月20日'}
+                       {post.publishedAt ? formatDate(post.publishedAt) : '2024年10月6日'}
                      </p>
                    </div>
                  </div>

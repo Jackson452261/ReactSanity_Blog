@@ -5,7 +5,15 @@ const imgs = [
     "https://res.cloudinary.com/dtbj43yha/image/upload/v1756212844/IMG_1998_ew87eo.jpg",
     "https://res.cloudinary.com/dtbj43yha/image/upload/v1756212384/IMG_1968_i6a4ey.jpg",
     "https://res.cloudinary.com/dtbj43yha/image/upload/v1756212130/IMG_1599_yyivgm.jpg",
-    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756211788/20241006_110101_uc5yu7.jpg"
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756211788/20241006_110101_uc5yu7.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756132612/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2_2025-08-25_224020_xk6h7m.png",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756132234/IMG_5755_rpxbgx.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1756130850/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2_2025-08-25_221055_nsqbpq.png",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1747273585/14_pkp6mg.png",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1736948223/2024%E6%97%A5%E6%9C%ACmotogp/IMG_1869_vqqryg.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1747273585/15_u0ggqc.png",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1736948223/2024%E6%97%A5%E6%9C%ACmotogp/IMG_1871_eklrni.jpg",
+    "https://res.cloudinary.com/dtbj43yha/image/upload/v1736948223/2024%E6%97%A5%E6%9C%ACmotogp/IMG_1872_ex0rot.jpg"
    ]
 
 

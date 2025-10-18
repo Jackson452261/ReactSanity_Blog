@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-slate-600">
+    <nav className="bg-slate-100">
       <ul className="flex mx-auto justify-between container">
         <li className="nav-item">
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive
-              ? "inline-flex py-4 px-2 text-black-600 bg-slate-500 rounded text-2xl cursor-pointer"
+              ? "inline-flex py-4 px-2 text-black-600 bg-amber-100 rounded text-2xl cursor-pointer"
               : "inline-flex py-4 px-2 mr-2 text-black-600 hover:text-orange-400 text-2xl cursor-pointer"
             }>首頁
           </NavLink>
@@ -19,7 +19,7 @@ const Navbar = () => {
             to="/about"
             className={({ isActive }) =>
               isActive
-             ? "inline-flex py-4 px-2 text-black-600 bg-slate-500 rounded text-2xl cursor-pointer"
+             ? "inline-flex py-4 px-2 text-black-600 bg-amber-100 rounded text-2xl cursor-pointer"
             : "inline-flex py-4 px-2 mr-2 text-black-600 hover:text-orange-400 text-2xl cursor-pointer"
             }>關於我
           </NavLink>
@@ -29,7 +29,7 @@ const Navbar = () => {
             to="/post"
             className={({ isActive }) =>
               isActive
-             ? "inline-flex py-4 px-2 text-black-600 bg-slate-500 rounded text-2xl cursor-pointer"
+             ? "inline-flex py-4 px-2 text-black-600 bg-amber-100 rounded text-2xl cursor-pointer"
             : "inline-flex py-4 px-2 mr-2 text-black-600 hover:text-orange-400 text-2xl cursor-pointer"
             }>文章
           </NavLink>

@@ -14,4 +14,92 @@
         <mobile:mobile/>
     </url>
     
- 
+    <!-- 文章列表頁 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/post</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <mobile:mobile/>
+    </url>
+    
+    <!-- 關於頁面 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/about</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <mobile:mobile/>
+    </url>
+    
+    <!-- 熱門旅遊文章 - 合歡山攻略 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/post/hehuanshan-travel-guide</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <mobile:mobile/>
+        <image:image>
+            <image:loc>https://jackblogweb.vercel.app/assets/hehuanshan.jpg</image:loc>
+            <image:title>合歡山旅遊攻略</image:title>
+            <image:caption>台灣高山旅遊景點合歡山完整攻略</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- 熱門旅遊文章 - 武陵農場 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/post/wuling-farm-cherry-blossom</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <mobile:mobile/>
+        <image:image>
+            <image:loc>https://jackblogweb.vercel.app/assets/wuling-farm.jpg</image:loc>
+            <image:title>武陵農場櫻花季</image:title>
+            <image:caption>武陵農場櫻花季旅遊指南</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- 亞洲旅遊文章 - 日本旅遊 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/post/japan-travel-guide</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <mobile:mobile/>
+        <image:image>
+            <image:loc>https://jackblogweb.vercel.app/assets/japan-travel.jpg</image:loc>
+            <image:title>日本旅遊完整攻略</image:title>
+            <image:caption>日本自由行旅遊攻略與景點推薦</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- 亞洲旅遊文章 - 馬來西亞旅遊 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/post/malaysia-travel-guide</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <mobile:mobile/>
+        <image:image>
+            <image:loc>https://jackblogweb.vercel.app/assets/malaysia-travel.jpg</image:loc>
+            <image:title>馬來西亞旅遊攻略</image:title>
+            <image:caption>馬來西亞自由行完整旅遊指南</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- 風景攝影技巧文章 -->
+    <url>
+        <loc>https://jackblogweb.vercel.app/post/landscape-photography-tips</loc>
+        <lastmod>2025-09-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <mobile:mobile/>
+        <image:image>
+            <image:loc>https://jackblogweb.vercel.app/assets/photography-tips.jpg</image:loc>
+            <image:title>風景攝影技巧分享</image:title>
+            <image:caption>旅遊風景攝影技巧與器材推薦</image:caption>
+        </image:image>
+    </url>
+
+</urlset>
