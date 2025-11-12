@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jackblogweb.vercel.app/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow all search engines to access images
+User-agent: Googlebot-Image
+Allow: /assets/
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Allow access to important SEO files
+Allow: /sitemap.xml
+Allow: /robots.txt
